@@ -2,56 +2,117 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="styles.css">
   <title>Frontend Mentor | Typing Speed Test</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <!-- Header: Top navigation bar with logo and action buttons -->
+  <header class="header">
+    <nav class="nav">
+      <div class="nav__logo">
+        <img src="./assets/images/logo-small.svg" alt="Typing Speed Test" class="nav__logo-img">
+      </div>
+      <div class="nav__actions">
+        <button class="btn btn--icon" aria-label="Settings" data-action="settings">
+          <svg class="btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M10 12.5C11.3807 12.5 12.5 11.3807 12.5 10C12.5 8.61929 11.3807 7.5 10 7.5C8.61929 7.5 7.5 8.61929 7.5 10C7.5 11.3807 8.61929 12.5 10 12.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16.25 10C16.25 10.2167 16.2417 10.425 16.225 10.625L18.125 12.1917C18.3333 12.3583 18.3917 12.65 18.275 12.9L16.475 16.4C16.3417 16.6833 16.05 16.8083 15.75 16.725L13.4083 16.05C13.05 16.4083 12.6583 16.7167 12.2333 16.975L11.9 19.4083C11.8667 19.7167 11.6083 19.9417 11.3 19.9417H8.7C8.39167 19.9417 8.13333 19.7167 8.1 19.4083L7.76667 16.975C7.34167 16.7167 6.95 16.4083 6.59167 16.05L4.25 16.725C3.95 16.8083 3.65833 16.6833 3.525 16.4L1.725 12.9C1.60833 12.65 1.66667 12.3583 1.875 12.1917L3.775 10.625C3.75833 10.425 3.75 10.2167 3.75 10C3.75 9.78333 3.75833 9.575 3.775 9.375L1.875 7.80833C1.66667 7.64167 1.60833 7.35 1.725 7.1L3.525 3.6C3.65833 3.31667 3.95 3.19167 4.25 3.275L6.59167 3.95C6.95 3.59167 7.34167 3.28333 7.76667 3.025L8.1 0.591667C8.13333 0.283333 8.39167 0.0583333 8.7 0.0583333H11.3C11.6083 0.0583333 11.8667 0.283333 11.9 0.591667L12.2333 3.025C12.6583 3.28333 13.05 3.59167 13.4083 3.95L15.75 3.275C16.05 3.19167 16.3417 3.31667 16.475 3.6L18.275 7.1C18.3917 7.35 18.3333 7.64167 18.125 7.80833L16.225 9.375C16.2417 9.575 16.25 9.78333 16.25 10Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="sr-only">Settings</span>
+        </button>
+        <button class="btn btn--icon" aria-label="Restart" data-action="restart">
+          <img src="./assets/images/icon-restart.svg" alt="Restart" class="btn__icon">
+        </button>
+      </div>
+    </nav>
+  </header>
 
-  Personal best: <!-- PB --> WPM
+  <!-- Main App Container: Contains all typing test functionality -->
+  <main class="app">
+    <!-- Personal Best Banner: Displays user's personal best WPM score -->
+    <div class="pb-banner hidden" aria-hidden="true">
+      <span class="pb-banner__text">Personal best: <span class="pb-banner__value" data-pb-value>0</span> WPM</span>
+    </div>
 
-  WPM: <!-- WPM -->
-  Accuracy: <!-- Accuracy -->
-  Time: <!-- Time -->
+    <!-- Typing Test Section: Main typing area with instructions and text prompt -->
+    <section class="typing-test">
+      <div class="typing-test__instructions">
+        <p class="typing-test__instruction-text">Start Typing Test</p>
+        <p class="typing-test__instruction-subtext">Or click the text and start typing</p>
+      </div>
+      
+      <div class="typing-test__prompt" tabindex="0" role="textbox" aria-label="Typing area">
+        <div class="typing-test__text" data-typing-text>
+          <span class="char" data-char-index="0">T</span><span class="char" data-char-index="1">h</span><span class="char" data-char-index="2">e</span><span class="char" data-char-index="3"> </span><span class="char" data-char-index="4">s</span><span class="char" data-char-index="5">u</span><span class="char" data-char-index="6">n</span><span class="char" data-char-index="7"> </span><span class="char" data-char-index="8">r</span><span class="char" data-char-index="9">o</span><span class="char" data-char-index="10">s</span><span class="char" data-char-index="11">e</span><span class="char" data-char-index="12"> </span><span class="char" data-char-index="13">o</span><span class="char" data-char-index="14">v</span><span class="char" data-char-index="15">e</span><span class="char" data-char-index="16">r</span><span class="char" data-char-index="17"> </span><span class="char" data-char-index="18">t</span><span class="char" data-char-index="19">h</span><span class="char" data-char-index="20">e</span><span class="char" data-char-index="21"> </span><span class="char" data-char-index="22">q</span><span class="char" data-char-index="23">u</span><span class="char" data-char-index="24">i</span><span class="char" data-char-index="25">e</span><span class="char" data-char-index="26">t</span><span class="char" data-char-index="27"> </span><span class="char" data-char-index="28">t</span><span class="char" data-char-index="29">o</span><span class="char" data-char-index="30">w</span><span class="char" data-char-index="31">n</span><span class="char" data-char-index="32">.</span><span class="char" data-char-index="33"> </span><span class="char" data-char-index="34">B</span><span class="char" data-char-index="35">i</span><span class="char" data-char-index="36">r</span><span class="char" data-char-index="37">d</span><span class="char" data-char-index="38">s</span><span class="char" data-char-index="39"> </span><span class="char" data-char-index="40">s</span><span class="char" data-char-index="41">a</span><span class="char" data-char-index="42">n</span><span class="char" data-char-index="43">g</span><span class="char" data-char-index="44"> </span><span class="char" data-char-index="45">i</span><span class="char" data-char-index="46">n</span><span class="char" data-char-index="47"> </span><span class="char" data-char-index="48">t</span><span class="char" data-char-index="49">h</span><span class="char" data-char-index="50">e</span><span class="char" data-char-index="51"> </span><span class="char" data-char-index="52">t</span><span class="char" data-char-index="53">r</span><span class="char" data-char-index="54">e</span><span class="char" data-char-index="55">e</span><span class="char" data-char-index="56">s</span><span class="char" data-char-index="57"> </span><span class="char" data-char-index="58">a</span><span class="char" data-char-index="59">s</span><span class="char" data-char-index="60"> </span><span class="char" data-char-index="61">p</span><span class="char" data-char-index="62">e</span><span class="char" data-char-index="63">o</span><span class="char" data-char-index="64">p</span><span class="char" data-char-index="65">l</span><span class="char" data-char-index="66">e</span><span class="char" data-char-index="67"> </span><span class="char" data-char-index="68">w</span><span class="char" data-char-index="69">o</span><span class="char" data-char-index="70">k</span><span class="char" data-char-index="71">e</span><span class="char" data-char-index="72"> </span><span class="char" data-char-index="73">u</span><span class="char" data-char-index="74">p</span><span class="char" data-char-index="75"> </span><span class="char" data-char-index="76">a</span><span class="char" data-char-index="77">n</span><span class="char" data-char-index="78">d</span><span class="char" data-char-index="79"> </span><span class="char" data-char-index="80">s</span><span class="char" data-char-index="81">t</span><span class="char" data-char-index="82">a</span><span class="char" data-char-index="83">r</span><span class="char" data-char-index="84">t</span><span class="char" data-char-index="85">e</span><span class="char" data-char-index="86">d</span><span class="char" data-char-index="87"> </span><span class="char" data-char-index="88">t</span><span class="char" data-char-index="89">h</span><span class="char" data-char-index="90">e</span><span class="char" data-char-index="91">i</span><span class="char" data-char-index="92">r</span><span class="char" data-char-index="93"> </span><span class="char" data-char-index="94">d</span><span class="char" data-char-index="95">a</span><span class="char" data-char-index="96">y</span><span class="char" data-char-index="97">.</span><span class="char" data-char-index="98"> </span><span class="char" data-char-index="99">I</span><span class="char" data-char-index="100">t</span><span class="char" data-char-index="101"> </span><span class="char" data-char-index="102">w</span><span class="char" data-char-index="103">a</span><span class="char" data-char-index="104">s</span><span class="char" data-char-index="105"> </span><span class="char" data-char-index="106">g</span><span class="char" data-char-index="107">o</span><span class="char" data-char-index="108">i</span><span class="char" data-char-index="109">n</span><span class="char" data-char-index="110">g</span><span class="char" data-char-index="111"> </span><span class="char" data-char-index="112">t</span><span class="char" data-char-index="113">o</span><span class="char" data-char-index="114"> </span><span class="char" data-char-index="115">b</span><span class="char" data-char-index="116">e</span><span class="char" data-char-index="117"> </span><span class="char" data-char-index="118">a</span><span class="char" data-char-index="119"> </span><span class="char" data-char-index="120">w</span><span class="char" data-char-index="121">a</span><span class="char" data-char-index="122">r</span><span class="char" data-char-index="123">m</span><span class="char" data-char-index="124"> </span><span class="char" data-char-index="125">a</span><span class="char" data-char-index="126">n</span><span class="char" data-char-index="127">d</span><span class="char" data-char-index="128"> </span><span class="char" data-char-index="129">s</span><span class="char" data-char-index="130">u</span><span class="char" data-char-index="131">n</span><span class="char" data-char-index="132">n</span><span class="char" data-char-index="133">y</span><span class="char" data-char-index="134"> </span><span class="char" data-char-index="135">m</span><span class="char" data-char-index="136">o</span><span class="char" data-char-index="137">r</span><span class="char" data-char-index="138">n</span><span class="char" data-char-index="139">i</span><span class="char" data-char-index="140">n</span><span class="char" data-char-index="141">g</span><span class="char" data-char-index="142">.</span>
+        </div>
+      </div>
+    </section>
 
-  Difficulty:
-  Easy
-  Medium
-  Hard
+    <!-- Stats Section: Real-time statistics display (WPM, Accuracy, Time) -->
+    <section class="stats">
+      <div class="stat-block" data-stat-type="wpm">
+        <div class="stat-block__label">WPM</div>
+        <div class="stat-block__value" data-stat-value="wpm">0</div>
+      </div>
+      <div class="stat-block" data-stat-type="accuracy">
+        <div class="stat-block__label">Accuracy</div>
+        <div class="stat-block__value" data-stat-value="accuracy">0%</div>
+      </div>
+      <div class="stat-block" data-stat-type="time">
+        <div class="stat-block__label">Time</div>
+        <div class="stat-block__value" data-stat-value="time">0s</div>
+      </div>
+    </section>
 
-  Mode:
-  Timed (60s)
-  Passage
+    <!-- Controls Section: Test configuration options (Difficulty and Mode) -->
+    <section class="controls">
+      <div class="controls__group">
+        <label class="controls__label">Difficulty</label>
+        <div class="controls__options">
+          <button class="controls__option controls__option--active" data-difficulty="easy">Easy</button>
+          <button class="controls__option" data-difficulty="medium">Medium</button>
+          <button class="controls__option" data-difficulty="hard">Hard</button>
+        </div>
+      </div>
+      <div class="controls__group">
+        <label class="controls__label">Mode</label>
+        <div class="controls__options">
+          <button class="controls__option controls__option--active" data-mode="timed">Timed (60s)</button>
+          <button class="controls__option" data-mode="passage">Passage</button>
+        </div>
+      </div>
+    </section>
 
-  <!-- Passage -->
+    <!-- Results Section: Test completion screen with final statistics -->
+    <section class="results">
+      <h2 class="results__title">Test Complete!</h2>
+      <p class="results__message" data-results-message>Solid run. Keep pushing to beat your high score.</p>
+      <div class="results__stats">
+        <div class="results__stat">
+          <span class="results__stat-label">WPM</span>
+          <span class="results__stat-value" data-results-wpm>0</span>
+        </div>
+        <div class="results__stat">
+          <span class="results__stat-label">Accuracy</span>
+          <span class="results__stat-value" data-results-accuracy>0%</span>
+        </div>
+        <div class="results__stat">
+          <span class="results__stat-label">Characters</span>
+          <span class="results__stat-value" data-results-characters>0/0</span>
+        </div>
+      </div>
+      <button class="btn btn--primary" data-action="go-again">Go Again</button>
+    </section>
+  </main>
 
-  Start Typing Test
-  Or click the text and start typing
-
-  <!-- Test Complete Start -->
-
-  Test Complete!
-  Solid run. Keep pushing to beat your high score.
-
-  WPM: <!-- WPM -->
-  Accuracy: <!-- Accuracy -->
-  Characters: <!-- Correct/Incorrect -->
-
-  Go Again
-  
-  <!-- Test Complete End -->
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <!-- Footer: Site footer with attribution -->
+  <footer class="footer">
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+      Coded by <a href="#">Sherwin</a>.
+    </div>
+  </footer>
 </body>
 </html>
