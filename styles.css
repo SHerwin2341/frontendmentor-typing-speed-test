@@ -287,9 +287,9 @@ body {
 .typing-test__prompt {
   background-color: var(--color-neutral-0);
   border: 1px solid var(--color-neutral-400);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-6);
-  min-height: 8rem;
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-5) var(--spacing-6);
+  min-height: 7.5rem;
   cursor: text;
   outline: none;
 }
@@ -306,6 +306,8 @@ body {
   line-height: var(--line-height-relaxed);
   color: var(--color-neutral-900);
   word-wrap: break-word;
+  letter-spacing: 0.01em;
+  overflow-wrap: break-word;
 }
 
 .typing-test__text .char {
@@ -346,8 +348,14 @@ body {
   padding: var(--spacing-4);
   background-color: var(--color-neutral-0);
   border: 1px solid var(--color-neutral-400);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   text-align: center;
+  position: relative;
+}
+
+.stat-block:focus-visible {
+  outline: 2px solid var(--color-blue-600);
+  outline-offset: 2px;
 }
 
 .stat-block__label {
@@ -390,7 +398,7 @@ body {
 
 .controls__options {
   display: flex;
-  gap: var(--spacing-2);
+  gap: var(--spacing-3);
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -406,6 +414,8 @@ body {
   cursor: pointer;
   transition: all var(--transition-base);
   font-family: var(--font-family);
+  flex: 0 1 auto;
+  min-width: fit-content;
 }
 
 .controls__option:hover {
@@ -479,7 +489,7 @@ body {
   padding: var(--spacing-4);
   background-color: var(--color-neutral-0);
   border: 1px solid var(--color-neutral-400);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
 }
 
 .results__stat-label {
@@ -503,7 +513,7 @@ body {
 
 .footer {
   width: 100%;
-  padding: var(--spacing-8) var(--spacing-4) var(--spacing-6);
+  padding: var(--spacing-8) var(--spacing-4) var(--spacing-4);
   margin-top: auto;
 }
 
@@ -583,8 +593,8 @@ body {
   }
   
   .typing-test__prompt {
-    padding: var(--spacing-8);
-    min-height: 10rem;
+    padding: var(--spacing-6) var(--spacing-8);
+    min-height: 9.5rem;
   }
   
   .typing-test__text {
@@ -608,7 +618,7 @@ body {
   }
   
   .controls__options {
-    gap: var(--spacing-3);
+    gap: var(--spacing-4);
   }
   
   .controls__option {
@@ -616,8 +626,12 @@ body {
   }
   
   .results {
-    gap: var(--spacing-8);
+    gap: var(--spacing-6);
     padding: var(--spacing-12) var(--spacing-6);
+  }
+  
+  .results .btn--primary {
+    margin-top: var(--spacing-2);
   }
   
   .results__title {
@@ -707,9 +721,22 @@ body {
     min-width: 6rem;
   }
   
+  .controls__options {
+    gap: var(--spacing-4);
+  }
+  
+  .controls__option {
+    max-width: 10rem;
+    flex: 0 1 auto;
+  }
+  
   .results {
-    gap: var(--spacing-10);
+    gap: var(--spacing-8);
     padding: var(--spacing-16) var(--spacing-10);
+  }
+  
+  .results .btn--primary {
+    margin-top: var(--spacing-4);
   }
   
   .results__title {
@@ -721,6 +748,6 @@ body {
   }
   
   .footer {
-    padding: var(--spacing-12) var(--spacing-10) var(--spacing-10);
+    padding: var(--spacing-12) var(--spacing-10) var(--spacing-8);
   }
 }
