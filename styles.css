@@ -1,0 +1,726 @@
+/* ============================================
+   CSS Variables - Design Tokens
+   ============================================ */
+
+:root {
+  /* Colors - Neutral */
+  --color-neutral-900: hsl(0, 0%, 7%);
+  --color-neutral-800: hsl(0, 0%, 15%);
+  --color-neutral-500: hsl(240, 3%, 46%);
+  --color-neutral-400: hsl(240, 1%, 59%);
+  --color-neutral-0: hsl(0, 0%, 100%);
+  
+  /* Colors - Blue */
+  --color-blue-600: hsl(214, 100%, 55%);
+  --color-blue-400: hsl(210, 100%, 65%);
+  
+  /* Colors - Red */
+  --color-red-500: hsl(354, 63%, 57%);
+  
+  /* Colors - Green */
+  --color-green-500: hsl(140, 63%, 57%);
+  
+  /* Colors - Yellow */
+  --color-yellow-400: hsl(49, 85%, 70%);
+  
+  /* Typography - Font Family */
+  --font-family: 'Sora', sans-serif;
+  
+  /* Typography - Font Sizes (Mobile) */
+  --font-size-xs: 0.75rem;      /* 12px */
+  --font-size-sm: 0.875rem;     /* 14px */
+  --font-size-base: 1rem;       /* 16px */
+  --font-size-lg: 1.125rem;     /* 18px */
+  --font-size-xl: 1.25rem;      /* 20px */
+  --font-size-2xl: 1.5rem;      /* 24px */
+  --font-size-3xl: 2rem;        /* 32px */
+  --font-size-4xl: 2.5rem;      /* 40px */
+  --font-size-5xl: 3rem;        /* 48px */
+  
+  /* Typography - Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Typography - Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Spacing Scale */                                                                                                                             
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.25rem;   /* 20px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-10: 2.5rem;   /* 40px */
+  --spacing-12: 3rem;     /* 48px */
+  --spacing-16: 4rem;     /* 64px */
+  --spacing-20: 5rem;     /* 80px */
+  --spacing-24: 6rem;     /* 96px */
+  
+  /* Layout */
+  --max-width-container: 90rem;  /* 1440px */
+  --max-width-content: 42.5rem;  /* 680px */
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+}
+
+/* ============================================
+   Base Styles & Reset
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+  color: var(--color-neutral-900);
+  background-color: var(--color-neutral-0);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Hidden Utility */
+.hidden {
+  display: none !important;
+}
+
+/* ============================================
+   Header & Navigation
+   ============================================ */
+
+.header {
+  width: 100%;
+  padding: var(--spacing-4) var(--spacing-4) var(--spacing-6);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width-container);
+  margin: 0 auto;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo-img {
+  height: 1.5rem;
+  width: auto;
+}
+
+.nav__actions {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: center;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+
+.btn {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: transparent;
+  color: var(--color-neutral-900);
+}
+
+.btn--icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  background-color: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-400);
+}
+
+.btn--icon:hover {
+  background-color: var(--color-neutral-800);
+  color: var(--color-neutral-0);
+  border-color: var(--color-neutral-800);
+}
+
+.btn--icon:focus-visible {
+  outline: 2px solid var(--color-blue-600);
+  outline-offset: 2px;
+}
+
+.btn--icon .btn__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: currentColor;
+}
+
+.btn--primary {
+  padding: var(--spacing-4) var(--spacing-8);
+  background-color: var(--color-blue-600);
+  color: var(--color-neutral-0);
+  font-weight: var(--font-weight-semibold);
+}
+
+.btn--primary:hover {
+  background-color: var(--color-blue-400);
+}
+
+.btn--primary:focus-visible {
+  outline: 2px solid var(--color-blue-600);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Personal Best Banner
+   ============================================ */
+
+.pb-banner {
+  background-color: var(--color-yellow-400);
+  padding: var(--spacing-3) var(--spacing-4);
+  text-align: center;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-900);
+}
+
+.pb-banner__text {
+  display: block;
+}
+
+.pb-banner__value {
+  font-weight: var(--font-weight-bold);
+}
+
+/* ============================================
+   Main App Container
+   ============================================ */
+
+.app {
+  flex: 1;
+  width: 100%;
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 var(--spacing-4) var(--spacing-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+/* ============================================
+   Typing Test Section
+   ============================================ */
+
+.typing-test {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.typing-test__instructions {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.typing-test__instruction-text {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-900);
+  line-height: var(--line-height-tight);
+}
+
+.typing-test__instruction-subtext {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-neutral-500);
+  line-height: var(--line-height-normal);
+}
+
+.typing-test__prompt {
+  background-color: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-400);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-6);
+  min-height: 8rem;
+  cursor: text;
+  outline: none;
+}
+
+.typing-test__prompt:focus-visible {
+  border-color: var(--color-blue-600);
+  outline: 2px solid var(--color-blue-600);
+  outline-offset: 2px;
+}
+
+.typing-test__text {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-neutral-900);
+  word-wrap: break-word;
+}
+
+.typing-test__text .char {
+  display: inline;
+}
+
+.typing-test__text .char.correct {
+  color: var(--color-green-500);
+}
+
+.typing-test__text .char.incorrect {
+  color: var(--color-red-500);
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.typing-test__text .char.current {
+  background-color: var(--color-blue-400);
+  color: var(--color-neutral-0);
+  padding: 0 0.125rem;
+  border-radius: 2px;
+}
+
+/* ============================================
+   Stats Section
+   ============================================ */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-4);
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-4);
+  background-color: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-400);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.stat-block__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-neutral-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-block__value {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+  line-height: var(--line-height-tight);
+}
+
+/* ============================================
+   Controls Section
+   ============================================ */
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+.controls__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.controls__label {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-neutral-900);
+  text-align: center;
+}
+
+.controls__options {
+  display: flex;
+  gap: var(--spacing-2);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.controls__option {
+  padding: var(--spacing-3) var(--spacing-5);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-neutral-900);
+  background-color: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-400);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-family: var(--font-family);
+}
+
+.controls__option:hover {
+  background-color: var(--color-neutral-800);
+  color: var(--color-neutral-0);
+  border-color: var(--color-neutral-800);
+}
+
+.controls__option:focus-visible {
+  outline: 2px solid var(--color-blue-600);
+  outline-offset: 2px;
+}
+
+.controls__option--active {
+  background-color: var(--color-blue-600);
+  color: var(--color-neutral-0);
+  border-color: var(--color-blue-600);
+  font-weight: var(--font-weight-semibold);
+}
+
+.controls__option--active:hover {
+  background-color: var(--color-blue-400);
+  border-color: var(--color-blue-400);
+}
+
+/* ============================================
+   Results Section
+   ============================================ */
+
+.results {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-6);
+  text-align: center;
+  padding: var(--spacing-8) var(--spacing-4);
+}
+
+.results:not(.hidden) {
+  display: flex;
+}
+
+.results__title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+  line-height: var(--line-height-tight);
+}
+
+.results__message {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-neutral-500);
+  line-height: var(--line-height-normal);
+  max-width: 28rem;
+}
+
+.results__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-4);
+  width: 100%;
+  max-width: 28rem;
+}
+
+.results__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-4);
+  background-color: var(--color-neutral-0);
+  border: 1px solid var(--color-neutral-400);
+  border-radius: var(--radius-lg);
+}
+
+.results__stat-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-neutral-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.results__stat-value {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-neutral-900);
+  line-height: var(--line-height-tight);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+  width: 100%;
+  padding: var(--spacing-8) var(--spacing-4) var(--spacing-6);
+  margin-top: auto;
+}
+
+.attribution {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-500);
+  line-height: var(--line-height-normal);
+}
+
+.attribution a {
+  color: var(--color-blue-600);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+}
+
+.attribution a:hover {
+  color: var(--color-blue-400);
+  text-decoration: underline;
+}
+
+.attribution a:focus-visible {
+  outline: 2px solid var(--color-blue-600);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   Media Queries - Tablet (768px+)
+   ============================================ */
+
+@media (min-width: 48rem) {
+  :root {
+    /* Typography - Font Sizes (Tablet) */
+    --font-size-3xl: 2.5rem;      /* 40px */
+    --font-size-4xl: 3rem;        /* 48px */
+    --font-size-5xl: 3.5rem;      /* 56px */
+  }
+  
+  .header {
+    padding: var(--spacing-6) var(--spacing-6) var(--spacing-8);
+  }
+  
+  .nav__logo-img {
+    height: 2rem;
+  }
+  
+  .nav__actions {
+    gap: var(--spacing-4);
+  }
+  
+  .btn--icon {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .btn--icon .btn__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .app {
+    padding: 0 var(--spacing-6) var(--spacing-12);
+    gap: var(--spacing-10);
+  }
+  
+  .typing-test {
+    gap: var(--spacing-8);
+  }
+  
+  .typing-test__instruction-text {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .typing-test__instruction-subtext {
+    font-size: var(--font-size-lg);
+  }
+  
+  .typing-test__prompt {
+    padding: var(--spacing-8);
+    min-height: 10rem;
+  }
+  
+  .typing-test__text {
+    font-size: var(--font-size-xl);
+  }
+  
+  .stats {
+    gap: var(--spacing-6);
+  }
+  
+  .stat-block {
+    padding: var(--spacing-6);
+  }
+  
+  .stat-block__value {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .controls {
+    gap: var(--spacing-8);
+  }
+  
+  .controls__options {
+    gap: var(--spacing-3);
+  }
+  
+  .controls__option {
+    padding: var(--spacing-4) var(--spacing-6);
+  }
+  
+  .results {
+    gap: var(--spacing-8);
+    padding: var(--spacing-12) var(--spacing-6);
+  }
+  
+  .results__title {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .results__message {
+    font-size: var(--font-size-lg);
+  }
+  
+  .results__stats {
+    gap: var(--spacing-6);
+    max-width: 32rem;
+  }
+  
+  .results__stat {
+    padding: var(--spacing-6);
+  }
+  
+  .results__stat-value {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .footer {
+    padding: var(--spacing-10) var(--spacing-6) var(--spacing-8);
+  }
+}
+
+/* ============================================
+   Media Queries - Desktop (1440px+)
+   ============================================ */
+
+@media (min-width: 90rem) {
+  .header {
+    padding: var(--spacing-8) var(--spacing-10) var(--spacing-10);
+  }
+  
+  .app {
+    padding: 0 var(--spacing-10) var(--spacing-16);
+    gap: var(--spacing-12);
+  }
+  
+  .typing-test {
+    gap: var(--spacing-10);
+  }
+  
+  .typing-test__instruction-text {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .typing-test__prompt {
+    padding: var(--spacing-10);
+    min-height: 12rem;
+  }
+  
+  .typing-test__text {
+    font-size: var(--font-size-2xl);
+    line-height: 2;
+  }
+  
+  .stats {
+    gap: var(--spacing-8);
+  }
+  
+  .stat-block {
+    padding: var(--spacing-8);
+  }
+  
+  .stat-block__value {
+    font-size: var(--font-size-5xl);
+  }
+  
+  .controls {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacing-12);
+  }
+  
+  .controls__group {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-4);
+  }
+  
+  .controls__label {
+    text-align: left;
+    min-width: 6rem;
+  }
+  
+  .results {
+    gap: var(--spacing-10);
+    padding: var(--spacing-16) var(--spacing-10);
+  }
+  
+  .results__title {
+    font-size: var(--font-size-5xl);
+  }
+  
+  .results__stats {
+    max-width: 36rem;
+  }
+  
+  .footer {
+    padding: var(--spacing-12) var(--spacing-10) var(--spacing-10);
+  }
+}
